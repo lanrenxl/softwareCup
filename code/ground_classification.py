@@ -20,11 +20,11 @@ import time
 # 随机种子
 SEED = 77571
 # 数据集存放目录
-DATA_DIR = '../tempPic/gc'
+DATA_DIR = '../../tempPic/gc'
 # 测试集`file_list`文件路径
-TEST_FILE_LIST_PATH = '../tempPic/gc/test.txt'
+TEST_FILE_LIST_PATH = '../../tempPic/gc/test.txt'
 # 数据集类别信息文件路径
-LABEL_LIST_PATH = '../tempPic/gc/labels.txt'
+LABEL_LIST_PATH = '../../tempPic/gc/labels.txt'
 random.seed(SEED)
 np.random.seed(SEED)
 paddle.seed(SEED)
