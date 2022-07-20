@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- SEO优化 -->
+    <!-- 网站说明 -->
+    <meta name="description" content="" />
+    <!-- 关键字 -->
+    <meta name="keywords" content="">
+    <!-- 引入favicon图标 -->
+    <link rel="shortcut icon" href="{{url_for('static',filename='image/s.ico')}}" />
+    <link rel="stylesheet" href="{{url_for('static',filename='css/register.css')}}">
+    <link rel="stylesheet" href="{{url_for('static',filename='./lib/iconfont/iconfont.css')}}">
+    <link rel="stylesheet" href="{{url_for('static',filename='css/base.css')}}">
+    <title>登录</title>
+</head>
+
+<body>
+    <div>
+        <!-- 顶部导航栏开始 -->
+        <header>
+            <div class="w">
+                <div class="logo">
+                    <h1>
+                        <a href="{{ipsocket}}/0" title="遥感图像智能解译平台">遥感图像智能解译平台</a>
+                    </h1>
+                    <span class="welcome">欢迎您</span>
+                </div>
+                <div class="register">
+                    <span>没有账号？</span><a href="{{ipsocket}}/signup">请注册</a>
+                </div>
+            </div>
+        </header>
+        <!-- 顶部导航栏结束 -->
+        <section>
+            <div class="reg_form">
+                <ul>
+                    <li><label for="">用户ID：</label><input type="text" class="usrid" name="userid" id="usrid">
+                        <span class="span_usrid color_blue">请输入11位手机号码</span></li>
+                    <li><label for="">密码：</label><input type="password" class="usrpwd" name="userpwd" id="usrpwd">
+                        <span class="span_pwd color_blue"></span></li>
+                    <li><button class="submit">登录</button></li>
+
+                </ul>
+            </div>
+        </section>
+    </div>
+    <script src="{{url_for('static',filename='js/jquery-3.0.0/jquery-3.0.0.min.js')}}"></script>
+    <script>
+        var usrid = document.querySelector('.usrid');
+        var span_usrid = document.querySelector('.span_usrid');
+        var usrpwd = document.querySelector('.usrpwd');
+        var span_pwd = document.querySelector('.span_pwd');
+        var submit = document.querySelector('.submit');
+
+        var idAccess = false;
+        var pwdAccess = false;
+
+        usrid.onblur = function () {
+            if (this.value.length != 11) {
+                idAccess = false;
+                span_usrid.className = 'span_usrid iconfont icon-a-26-shuoming color_red';
+                span_usrid.innerHTML = '请输入11位手机号码!';
+            } else {
+                idAccess = true;
+                span_usrid.className = 'span_usrid iconfont icon-a-29-xingji color_green';
+                span_usrid.innerHTML = '用户ID正确!';
+            }
+        }
+
+
+        usrpwd.onblur = function () {
+            if(this.value.length == 0 || this.value.length >40)
+            {
+                pwdAccess = false;
+            }
+            else
+            {
+                pwdAccess = true;
+            }
+        }
+        submit.onclick =function() {
+            if(idAccess == true && pwdAccess == true)
+            {
+                var data = {
+                    'id':usrid.value,
+                    'pwd':usrpwd.value
+                }
+                $.ajax({
+                    url:"{{ipsocket}}/logining",
+                    type:"GET",
+                    data:data,
+                    success:function (data) {
+                        if(data['msg'] == '-1')
+                        {
+                            alert("账号错误!");
+                        }
+                        else if(data['msg'] == '1')
+                        {
+                            location.href=data['url']+'/'+usrid.value;
+                        }
+                        else
+                        {
+                            alert("密码错误!");
+                        }
+                    }
+                })
+            }
+            else
+            {
+                alert("输入错误,请检查!");
+            }
+        }
+    </script>
+</body>
+
+</html>

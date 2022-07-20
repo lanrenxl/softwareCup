@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- SEO优化 -->
+    <!-- 网站说明 -->
+    <meta name="description" content="" />
+    <!-- 关键字 -->
+    <meta name="keywords" content="">
+    <!-- 引入favicon图标 -->
+    <link rel="shortcut icon" href="{{url_for('static',filename='image/s.ico')}}" />
+    <link rel="stylesheet" href="{{url_for('static',filename='css/signup.css')}}">
+    <link rel="stylesheet" href="{{url_for('static',filename='./lib/iconfont/iconfont.css')}}">
+    <link rel="stylesheet" href="{{url_for('static',filename='css/base.css')}}">
+    <title>注册</title>
+</head>
+
+<body>
+    <div>
+        <!-- 顶部导航栏开始 -->
+        <header>
+            <div class="w">
+                <div class="logo">
+                    <h1>
+                        <a href="{{ipsocket}}/0" title="遥感图像智能解译平台">遥感图像智能解译平台</a>
+                    </h1>
+                    <span class="welcome">欢迎您</span>
+                </div>
+                <div class="register">
+                    <span>已有帐号？</span><a href="{{ipsocket}}/login">请登录</a>
+                </div>
+            </div>
+        </header>
+        <!-- 顶部导航栏结束 -->
+        <section>
+            <div class="registerarea">
+
+                <div class="reg_form">
+                    <ul>
+                        <li><label for="">用户ID：</label><input type="text" class="phonenum inp"><span
+                                class="sp_phonenum normal">11位手机号码!</span>
+                        </li>
+                        <li><label for="">用户名：</label><input type="text" class="PINnum inp"><span
+                                class="sp_PINnum normal"></span></li>
+                        <li><label for="">登录密码：</label><input type="password" class="pwd inp"><span
+                                class="sp_pwd normal">6-16位密码!</span>
+                        </li>
+                        <li class="safe">安全程度：<em class="weak">弱</em><em class="medium">中</em><em class="strong">强</em>
+                        </li>
+                        <li><label for="">确认密码：</label><input type="password" class="pwdconfirm inp"><span
+                                class="sp_pwdconfirm normal">请再次输入密码!</span>
+                        </li>
+                        <li class="agree"><input type="checkbox" name="" id=""> 同意协议并注册<a href="#">《用户协议》</a>
+                        </li>
+                        <li><button class="submit">完成注册</button></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </div>
+    <script src="{{url_for('static',filename='js/jquery-3.0.0/jquery-3.0.0.min.js')}}"></script>
+    <script>
+        var phonenum = document.querySelector('.phonenum');
+        var sp_phonenum = document.querySelector('.sp_phonenum');
+        var PINnum = document.querySelector('.PINnum');
+        var sp_PINnum = document.querySelector('.sp_PINnum');
+        var pwd = document.querySelector('.pwd');
+        var sp_pwd = document.querySelector('.sp_pwd');
+        var pwdconfirm = document.querySelector('.pwdconfirm');
+        var sp_pwdconfirm = document.querySelector('.sp_pwdconfirm');
+        var submit = document.querySelector('.submit');
+
+        var idAccess = false;
+        var nameAccess = false;
+        var pwdAccess = false;
+        var confirmAccess = false;
+
+        phonenum.onblur = function () {
+            if (this.value.length != 11) {
+                idAccess = false;
+                sp_phonenum.className = 'sp_phonenum iconfont icon-a-26-shuoming error';
+                sp_phonenum.innerHTML = '用户ID格式不对!请重新输入!';
+            } else {
+                idAccess = true;
+                sp_phonenum.className = "sp_phonenum iconfont icon-a-29-xingji success";
+                sp_phonenum.innerHTML = "用户ID正确!";
+            }
+        }
+        PINnum.onblur = function () {
+            if(this.value.length == 0 || this.value.length >40)
+            {
+                nameAccess = false;
+            }
+            else
+            {
+                nameAccess = true;
+            }
+        }
+        pwd.onblur = function () {
+            if (this.value.length < 6 || this.value.length > 16) {
+                pwdAccess = false;
+                sp_pwd.className = ' sp_pwd iconfont icon-a-26-shuoming error';
+                sp_pwd.innerHTML = '密码长度应为6-16位!';
+            } else {
+                pwdAccess = true;
+                sp_pwd.className = 'sp_pwd iconfont icon-a-29-xingji success';
+                sp_pwd.innerHTML = '密码格式正确!';
+            }
+        }
+        pwdconfirm.onblur = function () {
+            if (this.value.length < 6 || this.value.length > 16) {
+                confirmAccess = false;
+            } else {
+                confirmAccess = true;
+            }
+        }
+
+        submit.onclick =function() {
+            if(idAccess == true && pwdAccess == true && nameAccess == true && confirmAccess == true && pwd.value == pwdconfirm.value)
+            {
+                var data = {
+                    'id':phonenum.value,
+                    'name':PINnum.value,
+                    'pwd':pwd.value
+                }
+                $.ajax({
+                    url:"{{ipsocket}}/signuping",
+                    type:"GET",
+                    data:data,
+                    success:function (data) {
+                        if(data['msg'] == '-1')
+                        {
+                            alert("ID已存在!");
+                        }
+                        else if(data['msg'] == '1')
+                        {
+                            location.href=data['url']+'/'+phonenum.value;
+                        }
+                    }
+                })
+            }
+            else
+            {
+                alert("输入错误,请检查!");
+            }
+        }
+    </script>
+</body>
+
+</html>

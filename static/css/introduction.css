@@ -1,0 +1,115 @@
+body {
+    width: 100%;
+    height: 100%;
+    background: url(../image/1.jpg) no-repeat center center;
+    background-size:cover;
+    background-attachment: fixed;
+    position: fixed;
+    top:0;
+    left:0;
+}
+
+body a {
+    display: block;
+    width: 213px;
+    height: 66px;
+    background: url(../image/logo.png) no-repeat;
+}
+
+body .personTabel {
+  color: #fff;
+  font-size: 30px;
+  position: absolute;
+  top: 4%;
+  left: 23%;
+  transform: translate(-50%, -50%);
+}
+
+
+
+.tab {
+    width: 1200px;
+    height: 600px;
+    margin: 120px auto;
+    border-radius: 20px;
+    position: relative;
+    background-color: rgba(255, 255, 255, 0.13);
+    color:white;
+    text-align: center;
+}
+
+.tab .tab_list {
+    display: inline-block;
+    width: 30%;
+    height: 60px;
+    line-height: 60px;
+    font-size: 20px;
+    text-align: center;
+}
+
+.tab .tab_con .item {
+    display: none;
+}
+
+.tab .tab_con .item .pic{
+    width: 100%;
+    height: 540px;
+}
+
+.tab .tab_con .item .pic ul{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.tab .tab_con .item .pic ul li {
+    margin-top: 60px;
+    float: left;
+    width: 350px;
+    height: 350px;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.tab .tab_con .item .pic ul li img{
+    width: 100%;
+    height: 100%;
+
+}
+
+.tab .tab_con .item .btn {
+    width: 100%;
+    height: 60px;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.tab .tab_con .item .btn button {
+    display: inline-block;
+    font-size: 25px;
+    width: 300px;
+    height: 100%;
+    border: 0;
+    border-radius: 10px;
+    margin-top: auto;
+    margin-left: 20px;
+    margin-right: 20px;
+    background-color: white;
+}
+
+.iconfont{
+    font-size:50px;
+}
+
+.tab .rbtn {
+    position: absolute;
+    top: 50%;
+    left: 101%;
+    transform: translateY(-50%);
+}
+
+.tab .lbtn {
+    position: absolute;
+    top: 50%;
+    left: -5%;
+    transform: translateY(-50%);
+}

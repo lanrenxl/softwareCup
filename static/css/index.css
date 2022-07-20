@@ -1,0 +1,178 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  background-color: #fff;
+}
+body hr {
+  width: 90%;
+  margin-left: 5%;
+}
+body .navi {
+  position: relative;
+  width: 100%;
+  height: 80px;
+  background-color: #232349;
+}
+body .navi .title {
+  position: absolute;
+  color: white;
+  top: 50%;
+  left: 80%;
+  transform: translateY(-50%);
+}
+body .navi div {
+  position: absolute;
+  height: 40px;
+  width: 200px;
+  color: white;
+  top: 50%;
+  left: 2%;
+  transform: translateY(-50%);
+}
+
+body .navi div .iconfont{
+  font-size: 40px;
+}
+
+body .navi div a {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateY(-50%);
+  display: none;
+  color: #fff;
+  font-size: 18px;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+body .navi div:hover > a {
+  display: inline;
+}
+
+body .mainBody {
+  position: relative;
+  margin-left: 10%;
+  margin-top: 80px;
+  width: 80%;
+  height: 700px;
+  overflow: hidden;
+  border-radius: 10px;
+}
+body .mainBody .bg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+}
+body .mainBody .introduction {
+  position: absolute;
+  left: 20%;
+  top: 40%;
+  width: 20%;
+  height: 50%;
+  border-radius: 10px;
+  transform: translate(-50%, -50%);
+  background-color: rgba(255, 255, 255, 0.6);
+}
+body .mainBody .introduction h2 {
+  width: 80%;
+  margin-left: 10%;
+  margin-top: 15%;
+}
+body .mainBody .introduction p {
+  width: 80%;
+  line-height: 30px;
+  margin-left: 10%;
+  margin-top: 10%;
+  font-size: 18px;
+}
+body .mainDisplay {
+  display: flex;
+  position: relative;
+  width: 100%;
+  height: 420;
+  margin-top: 80px;
+  margin-bottom: 80px;
+  justify-content: space-evenly;
+}
+body .mainDisplay div {
+  position: relative;
+  display: flex;
+  overflow: hidden;
+  width: 35%;
+  height: 100%;
+  box-sizing: border-box;
+  justify-content: center;
+}
+body .mainDisplay div h2 {
+  margin-top: 220px;
+  color: #7a7a7a;
+}
+body .mainDisplay div p {
+  margin-top: 20px;
+  font-size: 20px;
+  line-height: 30px;
+  color: #7a7a7a;
+}
+body .mainDisplay div img {
+  transition: all 0.5s;
+  width: 100%;
+}
+body .mainDisplay div span {
+  position: absolute;
+  bottom: 130px;
+  left: 50%;
+  text-align: left;
+  color: rgba(255, 255, 255, 0);
+  font-size: 35px;
+  font-weight: bold;
+  transform: translateX(-50%);
+  transition: all 0.5s;
+}
+body .mainDisplay div .mask {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(transparent, rgba(0, 0, 0, 0.4));
+  opacity: 0;
+  transition: all 0.5s;
+}
+body .mainDisplay div a {
+  position: absolute;
+  display: none;
+  bottom: 110px;
+  left: 50%;
+  text-align: left;
+  color: white;
+  font-size: 30px;
+  font-weight: bold;
+  text-decoration: none;
+  transform: translateX(-50%);
+  transition: all 0.5s;
+}
+body .mainDisplay div:hover > img {
+  transform: scale(1.1);
+}
+body .mainDisplay div:hover > span {
+  transform: translate(-50%, -40px);
+  color: white;
+}
+body .mainDisplay div:hover > .mask {
+  opacity: 1;
+}
+body .mainDisplay div:hover > a {
+  display: block;
+}
+body .mainDisplay .funcIntro {
+  display: block;
+}
+
+input{
+    padding: 5px;
+}

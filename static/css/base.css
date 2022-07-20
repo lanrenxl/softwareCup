@@ -1,0 +1,28 @@
+/* 初始化 */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+ul li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+.w {
+    width: 1200px;
+    margin: 0 auto;
+}
+
+em,
+i {
+    font-style: normal;
+}
+
+.iconfont{
+    font-size: 18px;
+}

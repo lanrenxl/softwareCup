@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>个人页面</title>
+    <link rel="stylesheet" href="{{url_for('static',filename='./lib/iconfont/iconfont.css')}}">
+    <link rel="stylesheet" href="{{url_for('static',filename='css/base.css')}}">
+    <link rel="stylesheet" href="{{url_for('static',filename='css/function.css')}}">
+</head>
+
+<body>
+    <a href="{{ipsocket}}/{{usrid}}" class="mainPage"></a>
+    <span class="iconfont icon-a-4-shezhi functionType">地物分类</span>
+    <a href="{{ipsocket}}/private/{{usrid}}" class="privatePage">个人中心</a>
+
+    <div class="tab">
+        <div class="tab_list">
+            项目名
+        </div>
+        <div class="tab_con">
+            <div class="item" style="display: block;">
+                <div class="pic">
+                    <form id="imgSubmit" method="post" action="{{ipsocket}}/functionDealing_gc/{{usrid}}" enctype="multipart/form-data">
+                        <ul>
+                            <li><input type="file" id="uploadImg1" name="uploadImg1"><img id="img1" class="img1" src="{{url_for('static',filename='image/upload.png')}}" alt=""></li>
+                            <li><img id="img2" class="img2" src="{{url_for('static',filename='image/turnto.png')}}" alt=""></li>
+                            <li> <div class="loadingEight"><span></span></div>
+                                <img id="img3" src="{{url_for('static',filename='image/download.png')}}" alt=""></li>
+                        </ul>
+                    </form>
+                </div>
+                <div class="btn"><button id="upload">上传</button><button id="download">下载</button></div>
+            </div>
+        </div>
+    </div>
+    <script src="{{url_for('static',filename='js/jquery-3.0.0/jquery-3.0.0.min.js')}}"></script>
+    <script src="{{url_for('static',filename='js/jquery-form.js')}}"></script>
+    <script>
+        var file1 = document.getElementById("uploadImg1");
+        var img1 = document.getElementById("img1");
+        var img3 = document.getElementById("img3");
+        var upload = document.getElementById("upload");
+        var download = document.getElementById("download");
+        var loadingEight = document.querySelector('.loadingEight');
+        var flag1 = false;
+        var result = 'null';
+
+        file1.onchange = function(){
+            img1.src = URL.createObjectURL(this.files[0]);
+            flag1 = true;
+        }
+
+        img1.onclick = function(){
+            file1.click();
+        }
+
+        $("#upload").click(function(){
+            if(flag1 == true){
+                loadingEight.style= "display:block";
+                img3.style= "display:none";
+                $("#imgSubmit").ajaxSubmit(function(data){
+                    loadingEight.style= "display:none";
+                    img3.style= "display:block";
+                    result = data['url'];
+                    img3.src = result;
+                });
+            }
+            else{
+                alert('请输入图片！');
+            }
+        });
+
+        $("#download").click(function(){
+            if(result != 'null'){
+                var a = document.createElement('a');
+                var filename = 'test1';
+                a.download = filename;
+                a.href = result;
+                a.click();
+            }
+            else{
+                alert('未提交，请按要求提交合理的输入图片！');
+            }
+        });
+    </script>
+</body>
+
+</html>

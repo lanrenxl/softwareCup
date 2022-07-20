@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <input id="send" type="button" value="发送">
+    <img src="{{url_for('static',filename='image/11.png')}}" alt="" id="pic" style="height: 500px;width: 500px;">
+    <script src="{{url_for('static',filename='js/jquery-3.0.0/jquery-3.0.0.min.js')}}"></script>
+
+
+    <script type="text/javascript">
+        $("#send").click(function () {
+            $.ajax({
+                url:"http://127.0.0.1:5000/send_message",
+                type:"GET",
+                success:function (data) {
+                    pic.src = data['url']
+                }
+            })
+        })
+    </script>
+</body>

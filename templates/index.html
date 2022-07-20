@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>智能遥感平台</title>
+    <link rel="stylesheet" href="{{url_for('static',filename='./lib/iconfont/iconfont.css')}}">
+    <link rel="stylesheet" href="{{url_for('static',filename='./css/index.css')}}">
+</head>
+<body>
+    <div class="navi">
+        <div><span class="iconfont icon-a-2-caidan"></span>
+            {% if logined != '0' %}
+                <a href="{{ipsocket}}/private/{{logined}}">个人中心</a>
+            {% else %}
+                <a href="{{ipsocket}}/login">登录</a>
+            {% endif %}
+        </div>
+        <h1 class="title">百度智能遥感平台</h1>
+    </div>
+
+    <div class="mainBody">
+        <img src="{{url_for('static',filename='image/earth.jpg')}}" alt="" class="bg">
+        <div class="introduction">
+            <h2>基于百度飞桨的智能遥感解译平台</h2>
+            <p>基于国产化人工智能框架——百度飞桨PaddlePaddle框架进行开发，设计一个可以通过深度学习技术实现对遥感图像自动解译的WEB系统。</p>
+        </div>
+    </div>
+
+    <div style="height: 7px; width: 90%; background-color: grey; margin-top: 50px; margin-left: 5%;"></div>
+        <!-- 主展示区 -->
+    <div class="mainDisplay">
+        <div class="funcIntro">
+            <h1>目标提取</h1>
+            <p>使用图像分割技术对卫星图像中的房屋、道路、铁路、树木、河流、车辆等指定对象完成分割。</p>
+            <h2>click the picture to enjoy the function  >></h2>
+        </div>
+        <div class="picture">
+            <img src="{{url_for('static',filename='image/10.png')}}" alt="">
+            <div class="mask"></div>
+            <span>目标提取</span>
+            {% if logined != '0'%}
+                <a href="{{ipsocket}}/function_te/{{logined}}">Get move </a>
+            {% else %}
+                <a href="{{ipsocket}}/login">Get move </a>
+            {% endif %}
+        </div>
+    </div>
+
+    <hr>
+        <!-- 主展示区 -->
+    <div class="mainDisplay">
+        <div class="picture">
+            <img src="{{url_for('static',filename='image/11.png')}}" alt="">
+            <div class="mask"></div>
+            <span>变化检测</span>
+            {% if logined != '0'%}
+                <a href="{{ipsocket}}/function_cd/{{logined}}">Get move </a>
+            {% else %}
+                <a href="{{ipsocket}}/login">Get move </a>
+            {% endif %}
+        </div>
+        <div class="funcIntro">
+            <h1>变化检测</h1>
+            <p>使用图像分割技术对同区域的两个时期的卫星图像的变化情况通过对比发现两区域不同来完成分析。</p>
+            <h2><<  click the picture to enjoy the function</h2>
+        </div>
+    </div>
+
+    <hr>
+        <!-- 主展示区 -->
+    <div class="mainDisplay">
+        <div class="funcIntro">
+            <h1>目标检测</h1>
+            <p>使用目标检测技术对卫星图像中指定对象评估像素数量和地理范围并且完成检测。</p>
+            <h2>click the picture to enjoy the function >></h2>
+        </div>
+        <div class="picture">
+            <img src="{{url_for('static',filename='image/7.jpg')}}" alt="">
+            <div class="mask"></div>
+            <span>目标检测</span>
+            {% if logined != '0'%}
+                <a href="{{ipsocket}}/function_td/{{logined}}">Get move </a>
+            {% else %}
+                <a href="{{ipsocket}}/login">Get move </a>
+            {% endif %}
+        </div>
+    </div>
+
+    <hr>
+        <!-- 主展示区 -->
+    <div class="mainDisplay">
+        <div class="picture">
+            <img src="{{url_for('static',filename='image/8.jpg')}}" alt="">
+            <div class="mask"></div>
+            <span>地物分类</span>
+            {% if logined != '0'%}
+                <a href="{{ipsocket}}/function_gc/{{logined}}">Get move </a>
+            {% else %}
+                <a href="{{ipsocket}}/login">Get move </a>
+            {% endif %}
+        </div>
+        <div class="funcIntro">
+            <h1>地物分类</h1>
+            <p>使用图像分割技术对卫星图像每个像素按照一定特征完成分类。</p>
+            <h2><< click the picture to enjoy the function</h2>
+        </div>
+    </div>
+</body>
+</html>

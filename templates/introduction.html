@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>个人页面</title>
+    <link rel="stylesheet" href="{{url_for('static',filename='./lib/iconfont/iconfont.css')}}">
+    <link rel="stylesheet" href="{{url_for('static',filename='css/base.css')}}">
+    <link rel="stylesheet" href="{{url_for('static',filename='css/introduction.css')}}">
+</head>
+
+<body>
+    <a href="{{ipsocket}}/{{usrid}}"></a>
+    <span class="iconfont icon-a-8-wode personTabel"></span>
+    <div class="tab">
+        <div class="rbtn"><span class="iconfont icon-a-10-you"></span></div>
+        <div class="lbtn"><span class="iconfont icon-a-9-zuo"></span></div>
+        <div class="tab_list projectID">
+            项目ID
+        </div>
+        <div class="tab_list projectFunctionType">
+            项目类别
+        </div>
+        <div class="tab_list projectDeadline">
+            截止日期
+        </div>
+        <div class="tab_con">
+            <div class="item" style="display: block;">
+                <div class="pic">
+                    <ul>
+                        <li><img id="img1" src="{{url_for('static',filename='image/upload.jpg')}}" alt=""></li>
+                        <li><img id="img2" src="{{url_for('static',filename='image/upload.jpg')}}" alt=""></li>
+                        <li><img id="img3" src="{{url_for('static',filename='image/upload.jpg')}}" alt=""></li>
+                    </ul>
+                </div>
+                <div class="btn"><button class="download">下载</button><button class="deleteProject">删除</button></div>
+            </div>
+        </div>
+    </div>
+    <script src="{{url_for('static',filename='js/jquery-3.0.0/jquery-3.0.0.min.js')}}"></script>
+    <script>
+        var rbtn = document.querySelector('.rbtn');
+        var lbtn = document.querySelector('.lbtn');
+        var download = document.querySelector('.download');
+        var deleteProject = document.querySelector('.deleteProject');
+        var projectID = document.querySelector('.projectID');
+        var projectDeadline = document.querySelector('.projectDeadline');
+        var projectFunctionType = document.querySelector('.projectFunctionType');
+        var personTabel = document.querySelector('.personTabel');
+        var globalData;
+        var index;
+        var length;
+        var type = {'1':'变化检测',
+                    '2':'地物分类',
+                    '3':'目标检测',
+                    '4':'目标提取'};
+        window.onload = function(){
+            $.ajax({
+                url:"{{ipsocket}}/getPrivateData/{{usrid}}",
+                type:"GET",
+                success:function (data) {
+                    globalData = data;
+                    index = 2;
+                    length = data[0]*7;
+                    personTabel.innerHTML = '用户ID:  ' + data[1]
+                    if(length != 0)
+                    {
+                        projectID.innerHTML = '项目ID:'+data[index]
+                        projectFunctionType.innerHTML = '项目类别:'+type[data[index+1]]
+                        projectDeadline.innerHTML = '截止:'+data[index+2]
+                        img1.src = data[index+4]
+                        if(data[index+5] == '/static/')
+                        {
+                            img2.src = "{{url_for('static',filename='image/turnto.png')}}"
+                        }
+                        else
+                        {
+                            img2.src = data[index+5]
+                        }
+                        img3.src = data[index+6]
+                    }
+                }
+            })
+        }
+
+        rbtn.onclick = function(){
+            if(index != length-5 && length != 0)
+            {
+                index = index + 7;
+                projectID.innerHTML = '项目ID:'+globalData[index]
+                projectFunctionType.innerHTML = '项目类别:'+type[globalData[index+1]]
+                projectDeadline.innerHTML = '截止:'+globalData[index+2]
+                img1.src = globalData[index+4]
+                if(globalData[index+5] == '/static/')
+                {
+                    img2.src = "{{url_for('static',filename='image/turnto.png')}}";
+                }
+                else
+                {
+                    img2.src = globalData[index+5];
+                }
+                img3.src = globalData[index+6]
+            }
+        }
+        lbtn.onclick = function(){
+            if(index != 2 && length != 0)
+            {
+                index = index - 7;
+                projectID.innerHTML = '项目ID:'+globalData[index]
+                projectFunctionType.innerHTML = '项目类别:'+type[globalData[index+1]]
+                projectDeadline.innerHTML = '截止:'+globalData[index+2]
+                img1.src = globalData[index+4]
+                if(globalData[index+5] == '/static/')
+                {
+                    img2.src = "{{url_for('static',filename='image/turnto.png')}}";
+                }
+                else
+                {
+                    img2.src = globalData[index+5];
+                }
+                img3.src = globalData[index+6]
+            }
+        }
+
+        download.onclick = function(){
+            if(length != 0)
+            {
+                var a = document.createElement('a');
+                var filename = 'test1';
+                a.download = filename;
+                a.href = globalData[index+4];
+                a.click();
+                if(globalData[index+5] != '/static/')
+                {
+                    a.href = globalData[index+5];
+                    a.click();
+                }
+                a.href = globalData[index+6];
+                a.click();
+            }
+            else
+            {
+                alert("没有项目!");
+            }
+        }
+
+        deleteProject.onclick = function(){
+            if(length != 0)
+            {
+                $.ajax({
+                    url:"{{ipsocket}}/deleteProject/{{usrid}}",
+                    type:"GET",
+                    data:{'projectID':globalData[index]},
+                    success:function (data) {
+                        location.href=data['url'];
+                    }
+                })
+            }
+            else
+            {
+                alert("没有项目!");
+            }
+        }
+
+    </script>
+</body>
+
+</html>
