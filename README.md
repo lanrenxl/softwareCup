@@ -1,7 +1,7 @@
 # 中国软件杯github仓库
 - code文件夹工程文件源码
 因为模型文件过大已删除网络的模型文件
-- 文档文件夹为软件杯的所需文档
+- doc文件夹为软件杯的所需文档
 ## 获取
 ```
 git clone https://github.com/lanrenxl/softwareCup.git
