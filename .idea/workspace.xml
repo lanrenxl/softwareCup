@@ -2,12 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5abcdea0-2038-4df7-b52a-ce8a0388704d" name="默认变更列表" comment="">
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/code/ground_classification.py" beforeDir="false" afterPath="$PROJECT_DIR$/code/ground_classification.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/文档/28012226概要设计说明书.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/文档/28012226详细设计说明书.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/文档/28012226需求规格说明书.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/文档/成员.txt" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,7 +42,7 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/static/imgBase" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="restartRequiresConfirmation" value="false" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>

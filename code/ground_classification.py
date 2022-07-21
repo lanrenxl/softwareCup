@@ -147,6 +147,7 @@ def mainFunc_gc(path):
 
     output1 = output1 < 110
     output1 = output1.astype(np.uint8) * 255
+
     # pred = paddle.argmax(output[0], axis=0)
     # pred = pred.numpy().astype(np.uint8)
 
