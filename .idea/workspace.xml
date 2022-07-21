@@ -2,6 +2,25 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5abcdea0-2038-4df7-b52a-ce8a0388704d" name="默认变更列表" comment="">
+      <change afterPath="$PROJECT_DIR$/code/static/imgBase/1658318017img_td.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/code/static/imgBase/1658318021img_td.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/code/static/imgBase/1658318025img_td.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/code/static/imgBase/1658318026img_td.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/code/static/imgBase/1658318033img_td.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/code/static/imgBase/1658318169img_gc.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/code/static/imgBase/1658318197img_gc.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/code/static/imgBase/1658318214img_gc.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/code/static/imgBase/1658318233img_gc.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/code/static/imgBase/1658318250img_gc.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/code/static/imgBase/1658318377img_gc.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/code/static/imgBase/1658318589img_gc.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/code/static/imgBase/1658318659img_gc.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/code/static/imgBase/1658318789img_gc.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/code/static/imgBase/1658318857img_gc.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/code/static/imgBase/1658319002img_gc.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/code/static/imgBase/1658319056img_gc.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/code/static/imgBase/1658319195img_gc.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/code/static/imgBase/1658319362img_gc.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/code/ground_classification.py" beforeDir="false" afterPath="$PROJECT_DIR$/code/ground_classification.py" afterDir="false" />
     </list>
